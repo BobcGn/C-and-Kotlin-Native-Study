@@ -106,6 +106,7 @@ KotlinNativeStudy/
 ├── README.md                         # 项目入口、环境与复现说明
 ├── .gitignore                        # 本地环境、构建产物和上游源码规则
 ├── docs/
+│   ├── upstream.md                   # 上游仓库清单与复现方式
 │   └── plan/                         # 分阶段学习计划与验收标准
 │       ├── README.md                 # 总览、阶段依赖与进度表
 │       ├── 01-modern-cpp.md          # Week 1–3
@@ -137,6 +138,8 @@ KotlinNativeStudy/
 
 目录约定：`basics/` 用于循序练习，`labs/` 用于验证单个问题，`projects/` 用于整合完整 SDK；克隆的第三方源码放进 `upstream/`，研究结论则写入可提交的 `upstream-notes/`。
 
+需要拉取的第三方源码、版本和命令统一记录在 [`docs/upstream.md`](docs/upstream.md)，不会直接收录进本仓库。
+
 ## 阶段计划
 
 | 阶段 | 周期 | 核心产出 |
@@ -167,4 +170,3 @@ KotlinNativeStudy/
 ## 总体验收目标
 
 完成路线后，应能够解释 API 与 ABI 的差异、C ABI 的稳定性价值、FFI ownership 与 callback 生命周期，并独立实现由 C++ Core、C ABI、JNI/cinterop 和 Kotlin Multiplatform API 组成的可测试、可发布 SDK。
-
