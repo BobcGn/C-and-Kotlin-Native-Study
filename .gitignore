@@ -1,0 +1,46 @@
+# Operating systems and editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# C/C++ build outputs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.dSYM/
+
+# Kotlin / Gradle
+.gradle/
+**/build/
+local.properties
+*.kotlin_module
+
+# Native tooling and diagnostics
+.cxx/
+*.profraw
+*.profdata
+*.gcda
+*.gcno
+
+# Local environments and logs
+.env
+.env.*
+!.env.example
+*.log
+
+# External repositories used for source study
+/upstream/
