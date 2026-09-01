@@ -54,39 +54,11 @@ jupyter kernelspec list
 jupyter lab
 ```
 
-打开 `basics/01-cpp/01-reference-const/` 下的笔记，确认 kernel 为 **C++23**，然后按顺序执行单元格。C++ Jupyter kernel 会保留已执行的声明；修改并重复执行函数定义时若出现 `redefinition`，请重启 kernel 后从头执行。
+打开 [`01-reference-const`](basics/01-cpp/01-reference-const/README.md) 或 [`02-class-object`](basics/01-cpp/02-class-object/README.md) 的实验目录，确认 kernel 为 **C++23**，然后按顺序执行单元格。C++ Jupyter kernel 会保留已执行的声明；修改并重复执行函数定义时若出现 `redefinition`，请重启 kernel 后从头执行。
 
 ### 3. 运行已有 C++ 实验
 
-实验 1–5 使用 C++23 Notebook，按照页面顺序执行单元格即可。实验 6 除了可交互执行的 Notebook，还保留了头文件、实现文件和主程序，用于练习真实的分离编译流程。
-
-在仓库根目录执行：
-
-```bash
-mkdir -p /tmp/kotlin-native-study-build
-clang++ -std=c++20 -Wall -Wextra -pedantic \
-  -I basics/01-cpp/02-class-object/include \
-  basics/01-cpp/02-class-object/06_header_source_main.cpp \
-  basics/01-cpp/02-class-object/user.cpp \
-  -o /tmp/kotlin-native-study-build/06_header_source
-/tmp/kotlin-native-study-build/06_header_source
-```
-
-也可以分三步观察编译与链接：
-
-```bash
-clang++ -std=c++20 -Wall -Wextra -pedantic \
-  -I basics/01-cpp/02-class-object/include \
-  -c basics/01-cpp/02-class-object/user.cpp \
-  -o /tmp/kotlin-native-study-build/user.o
-clang++ -std=c++20 -Wall -Wextra -pedantic \
-  -I basics/01-cpp/02-class-object/include \
-  -c basics/01-cpp/02-class-object/06_header_source_main.cpp \
-  -o /tmp/kotlin-native-study-build/main.o
-clang++ /tmp/kotlin-native-study-build/main.o \
-  /tmp/kotlin-native-study-build/user.o \
-  -o /tmp/kotlin-native-study-build/06_header_source
-```
+当前 C++ 实验使用 C++23 Notebook，按照页面顺序执行单元格即可。实验 6 额外使用 [`include/user.hpp`](basics/01-cpp/02-class-object/include/user.hpp) 展示公开头文件；成员函数实现和调用代码保留在 Notebook 中，用于交互观察声明、定义与调用之间的关系。
 
 ### 4. 推荐学习顺序
 
