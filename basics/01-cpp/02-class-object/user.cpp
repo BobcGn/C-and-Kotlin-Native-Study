@@ -8,7 +8,6 @@ User::User(
 {
 }
 
-
 const std::string &
 User::name() const
 {

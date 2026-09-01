@@ -1,8 +1,8 @@
-#ifndef USER_HPP
-#define USER_HPP
+#ifndef KOTLIN_NATIVE_STUDY_USER_HPP
+#define KOTLIN_NATIVE_STUDY_USER_HPP
 
 #include <string>
-// 声明
+
 class User
 {
 public:
@@ -21,5 +21,4 @@ private:
     int age_;
 };
 
-
-#endif
+#endif // KOTLIN_NATIVE_STUDY_USER_HPP

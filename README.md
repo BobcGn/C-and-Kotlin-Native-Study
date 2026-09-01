@@ -58,41 +58,40 @@ jupyter lab
 
 ### 3. 运行已有 C++ 实验
 
-单文件实验：
+实验 1–5 使用 C++23 Notebook，按照页面顺序执行单元格即可。实验 6 除了可交互执行的 Notebook，还保留了头文件、实现文件和主程序，用于练习真实的分离编译流程。
+
+在仓库根目录执行：
 
 ```bash
 mkdir -p /tmp/kotlin-native-study-build
 clang++ -std=c++20 -Wall -Wextra -pedantic \
-  basics/01-cpp/02-class-object/01_class_struct.cpp \
-  -o /tmp/kotlin-native-study-build/01_class_struct
-/tmp/kotlin-native-study-build/01_class_struct
-```
-
-将源文件名依次替换为 `02_constructor_destructor.cpp`、`03_const_member.cpp`、`04_this_static.cpp`、`05_stack_heap.cpp` 即可复现对应实验。
-
-头文件与实现分离实验需要同时编译两个翻译单元：
-
-```bash
-clang++ -std=c++20 -Wall -Wextra -pedantic \
+  -I basics/01-cpp/02-class-object/include \
   basics/01-cpp/02-class-object/06_header_source_main.cpp \
   basics/01-cpp/02-class-object/user.cpp \
   -o /tmp/kotlin-native-study-build/06_header_source
 /tmp/kotlin-native-study-build/06_header_source
 ```
 
-生命周期反例可配合编译器告警和 AddressSanitizer 观察；它包含故意保留的未定义行为，不应作为正确写法复制：
+也可以分三步观察编译与链接：
 
 ```bash
-clang++ -std=c++20 -Wall -Wextra -pedantic -fsanitize=address \
-  basics/01-cpp/01-reference-const/04_reference_lifetime.cpp \
-  -o /tmp/kotlin-native-study-build/04_reference_lifetime
-/tmp/kotlin-native-study-build/04_reference_lifetime
+clang++ -std=c++20 -Wall -Wextra -pedantic \
+  -I basics/01-cpp/02-class-object/include \
+  -c basics/01-cpp/02-class-object/user.cpp \
+  -o /tmp/kotlin-native-study-build/user.o
+clang++ -std=c++20 -Wall -Wextra -pedantic \
+  -I basics/01-cpp/02-class-object/include \
+  -c basics/01-cpp/02-class-object/06_header_source_main.cpp \
+  -o /tmp/kotlin-native-study-build/main.o
+clang++ /tmp/kotlin-native-study-build/main.o \
+  /tmp/kotlin-native-study-build/user.o \
+  -o /tmp/kotlin-native-study-build/06_header_source
 ```
 
 ### 4. 推荐学习顺序
 
-1. 依次运行四个 Jupyter 笔记。
-2. 编译并运行 `02-class-object` 中的六组源码。
+1. 依次运行 `01-reference-const` 中的四个 Jupyter 笔记。
+2. 依次运行 `02-class-object` 中的六个 Jupyter 笔记，并在实验 6 练习分离编译。
 3. 阅读 `basics/notes/` 中的主题笔记，并记录实验观察。
 4. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 补齐 Phase 1。
 5. 通过每份阶段计划中的验收条件后，再进入下一阶段。

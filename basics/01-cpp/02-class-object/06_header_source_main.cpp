@@ -14,5 +14,12 @@ int main()
         << user.age()
         << '\n';
 
+    user.set_age(21);
+    std::cout
+        << user.name()
+        << ", "
+        << user.age()
+        << '\n';
+
     return 0;
 }
