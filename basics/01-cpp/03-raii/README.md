@@ -53,3 +53,105 @@ Native SDK 经常向上层暴露文件、网络连接、线程同步对象或不
 - 原始 handle 只作为受约束的借用值，不转移所有权。
 - 资源作用域应尽可能小，多个资源依靠成员组合和逆序析构管理依赖关系。
 - C++ 异常必须在 C ABI 边界内被捕获并转换为稳定错误协议。
+
+## 验收题
+
+1. 为什么：
+
+   ```cpp
+   File file(...);
+   ```
+
+   比：
+
+   ```cpp
+   FILE *file = fopen(...);
+   ```
+
+   多表达了一个：
+
+   ```text
+   ownership model
+   ```
+
+2. 为什么 RAII 可以解决：
+
+   ```text
+   early return
+   ```
+
+   带来的 cleanup 问题？
+
+3. 为什么 exception 抛出过程中，RAII resource 仍然能够释放？
+
+   回答里应该出现：
+
+   ```text
+   stack unwinding
+   ```
+
+4. 为什么：
+
+   ```cpp
+   ~File()
+   ```
+
+   通常不能抛出 exception？
+
+5. 假设析构函数会对 `file_` 调用 `fclose()`，为什么下面这个类允许复制会很危险？
+
+   ```cpp
+   class File
+   {
+   private:
+       FILE *file_;
+   };
+   ```
+
+   如果允许：
+
+   ```cpp
+   File b = a;
+   ```
+
+   回答里应该包含：
+
+   ```text
+   shallow copy
+   → shared raw handle
+   → double release
+   ```
+
+6. 为什么：
+
+   ```cpp
+   File(const File &) = delete;
+   ```
+
+   和：
+
+   ```cpp
+   File &operator=(const File &) = delete;
+   ```
+
+   可以保护 ownership？
+
+7. RAII 和 GC 最大的区别是什么？
+
+   回答里至少应该包含：
+
+   ```text
+   RAII
+   deterministic destruction
+
+   GC
+   non-deterministic reclamation
+   ```
+
+8. 为什么：
+
+   ```text
+   RAII ≠ smart pointer
+   ```
+
+   ？
