@@ -92,7 +92,7 @@ KotlinNativeStudy/
 │   │   ├── 01-reference-const/       # 4 个 C++23 笔记与生命周期反例
 │   │   ├── 02-class-object/          # 类、构造析构、栈堆、分离编译
 │   │   ├── 03-raii/                  # 预留：RAII
-│   │   ├── 04-stl/                   # string、string_view、vector、array
+│   │   ├── 04-stl/                   # string、视图、连续容器、optional
 │   │   ├── 05-smart-pointer/         # 预留：智能指针
 │   │   ├── 06-move-semantics/        # 预留：移动语义
 │   │   └── 07-threading/             # 预留：并发与内存模型
