@@ -8,6 +8,7 @@
 # Jupyter
 .ipynb_checkpoints/
 /basics/01-cpp/03-raii/outputs/
+/basics/01-cpp/05-smart-pointer/outputs/
 
 # C/C++ build outputs
 build/

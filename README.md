@@ -2,7 +2,7 @@
 
 一个可复现、持续演进的 Kotlin/Native 与 Native SDK 工程学习仓库。学习主线从现代 C++ 出发，经过 C ABI、FFI 和 Kotlin/Native，最终落到 Kotlin Multiplatform SDK、生产工程与上游开源贡献。
 
-> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII，以及第四部分 STL ownership/API contract 实验已经完成；智能指针、移动语义、并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
+> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII、STL ownership/API contract，以及第五部分智能指针实验已经完成；移动语义、并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
 
 ## 学习主线
 
@@ -66,8 +66,9 @@ jupyter lab
 2. 依次运行 `02-class-object` 中的六个 Jupyter 笔记，并在实验 6 练习分离编译。
 3. 依次运行 `03-raii`，从手动清理推进到可复用资源 owner。
 4. 依次运行 [`04-stl`](basics/01-cpp/04-stl/README.md)，完成类型语义与 C ABI 翻译验收。
-5. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 继续补齐智能指针、移动语义、并发和工具链。
-6. 通过阶段计划中的验收条件后，再进入下一阶段。
+5. 依次运行 [`05-smart-pointer`](basics/01-cpp/05-smart-pointer/README.md)，完成 ownership graph、Sanitizer 与 SDK handle 验收。
+6. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 继续补齐移动语义、并发和工具链。
+7. 通过阶段计划中的验收条件后，再进入下一阶段。
 
 ## 当前目录结构
 
@@ -94,7 +95,7 @@ KotlinNativeStudy/
 │   │   ├── 02-class-object/          # 类、构造析构、栈堆、分离编译
 │   │   ├── 03-raii/                  # 文件资源、作用域、提前返回、异常安全
 │   │   ├── 04-stl/                   # 容器、视图、结果状态与 SDK API contract
-│   │   ├── 05-smart-pointer/         # 预留：智能指针
+│   │   ├── 05-smart-pointer/         # 唯一/共享所有权、weak observer 与 SDK handle
 │   │   ├── 06-move-semantics/        # 预留：移动语义
 │   │   └── 07-threading/             # 预留：并发与内存模型
 │   ├── 02-libraries/                 # 预留：静态库、动态库、符号、C ABI

@@ -17,7 +17,7 @@
 ## Week 2：RAII、STL 与所有权
 
 - [x] 为文件句柄或动态资源实现 RAII wrapper
-- [ ] 比较手动 `new/delete`、`unique_ptr` 和 `shared_ptr`
+- [x] 比较手动 `new/delete`、`unique_ptr` 和 `shared_ptr`
 - [x] 练习 `vector`、`string`、iterator 与算法
 - [x] 使用 `span` 表达非拥有视图
 - [x] 使用 `optional` 与 `variant` 表达结果状态
@@ -38,4 +38,3 @@
 - 能解释资源创建、转移和销毁，以及悬空引用、泄漏、double free 和 data race。
 - CMake 项目具有测试目标和 Sanitizer 构建选项。
 - 形成 RAII、ownership 和 concurrency 总结。
-
