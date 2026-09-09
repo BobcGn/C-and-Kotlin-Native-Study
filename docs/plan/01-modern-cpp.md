@@ -16,12 +16,12 @@
 
 ## Week 2：RAII、STL 与所有权
 
-- [ ] 为文件句柄或动态资源实现 RAII wrapper
+- [x] 为文件句柄或动态资源实现 RAII wrapper
 - [ ] 比较手动 `new/delete`、`unique_ptr` 和 `shared_ptr`
-- [ ] 练习 `vector`、`string`、iterator 与算法
-- [ ] 使用 `span` 表达非拥有视图
-- [ ] 使用 `optional` 与 `variant` 表达结果状态
-- [ ] 编写 ownership 笔记
+- [x] 练习 `vector`、`string`、iterator 与算法
+- [x] 使用 `span` 表达非拥有视图
+- [x] 使用 `optional` 与 `variant` 表达结果状态
+- [x] 编写 ownership 笔记
 
 ## Week 3：移动、并发与工具链
 

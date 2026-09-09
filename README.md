@@ -2,7 +2,7 @@
 
 一个可复现、持续演进的 Kotlin/Native 与 Native SDK 工程学习仓库。学习主线从现代 C++ 出发，经过 C ABI、FFI 和 Kotlin/Native，最终落到 Kotlin Multiplatform SDK、生产工程与上游开源贡献。
 
-> 当前进度：Phase 1（现代 C/C++）。仓库中已经包含引用、`const`、生命周期以及类与对象实验；其余目录是后续阶段的工作区，详细任务见 [`docs/plan`](docs/plan/README.md)。
+> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII，以及第四部分 STL ownership/API contract 实验已经完成；智能指针、移动语义、并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
 
 ## 学习主线
 
@@ -31,12 +31,12 @@ cd KotlinNativeStudy
 
 ### 2. 准备环境
 
-当前实验以 macOS + Clang 为主要验证环境。Linux 也可运行 C++ 实验，只需将 `clang++` 替换为支持 C++20 的编译器。
+当前实验以 macOS + Clang 为主要验证环境。Linux 也可运行 C++ 实验，只需将 `clang++` 替换为支持 C++23 的编译器。
 
 必需工具：
 
 - Git
-- Clang 16+（或兼容 C++20 的 GCC）
+- Clang 16+（或兼容 C++23 的 GCC）
 - JupyterLab
 - `xeus-cling`，并提供名为 `xcpp23` 的 C++23 kernel
 
@@ -54,19 +54,20 @@ jupyter kernelspec list
 jupyter lab
 ```
 
-打开 [`01-reference-const`](basics/01-cpp/01-reference-const/README.md) 或 [`02-class-object`](basics/01-cpp/02-class-object/README.md) 的实验目录，确认 kernel 为 **C++23**，然后按顺序执行单元格。C++ Jupyter kernel 会保留已执行的声明；修改并重复执行函数定义时若出现 `redefinition`，请重启 kernel 后从头执行。
+从 [`basics/01-cpp`](basics/01-cpp/) 选择编号主题目录，确认 kernel 为 **C++23**，再按文件编号和单元顺序执行。C++ Jupyter kernel 会保留已执行的声明；修改并重复执行函数定义时若出现 `redefinition`，请重启 kernel 后从头执行。
 
 ### 3. 运行已有 C++ 实验
 
-当前 C++ 实验使用 C++23 Notebook，按照页面顺序执行单元格即可。实验 6 额外使用 [`include/user.hpp`](basics/01-cpp/02-class-object/include/user.hpp) 展示公开头文件；成员函数实现和调用代码保留在 Notebook 中，用于交互观察声明、定义与调用之间的关系。
+当前 C++ 实验使用 C++23 Notebook。每个实验从一个可观察问题出发，通过代码输出、断言和失败案例解释 ownership、lifetime 以及 ABI 边界。主题目录的 `README.md` 记录实验顺序与验收要求；公开接口示例放在相邻 `include/` 中。
 
 ### 4. 推荐学习顺序
 
 1. 依次运行 `01-reference-const` 中的四个 Jupyter 笔记。
 2. 依次运行 `02-class-object` 中的六个 Jupyter 笔记，并在实验 6 练习分离编译。
-3. 阅读 `basics/notes/` 中的主题笔记，并记录实验观察。
-4. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 补齐 Phase 1。
-5. 通过每份阶段计划中的验收条件后，再进入下一阶段。
+3. 依次运行 `03-raii`，从手动清理推进到可复用资源 owner。
+4. 依次运行 [`04-stl`](basics/01-cpp/04-stl/README.md)，完成类型语义与 C ABI 翻译验收。
+5. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 继续补齐智能指针、移动语义、并发和工具链。
+6. 通过阶段计划中的验收条件后，再进入下一阶段。
 
 ## 当前目录结构
 
@@ -91,8 +92,8 @@ KotlinNativeStudy/
 │   ├── 01-cpp/
 │   │   ├── 01-reference-const/       # 4 个 C++23 笔记与生命周期反例
 │   │   ├── 02-class-object/          # 类、构造析构、栈堆、分离编译
-│   │   ├── 03-raii/                  # 预留：RAII
-│   │   ├── 04-stl/                   # string、视图、连续容器、optional
+│   │   ├── 03-raii/                  # 文件资源、作用域、提前返回、异常安全
+│   │   ├── 04-stl/                   # 容器、视图、结果状态与 SDK API contract
 │   │   ├── 05-smart-pointer/         # 预留：智能指针
 │   │   ├── 06-move-semantics/        # 预留：移动语义
 │   │   └── 07-threading/             # 预留：并发与内存模型
