@@ -6,10 +6,10 @@
 
 | 顺序 | 实验 | 大致内容 |
 | --- | --- | --- |
-| 1 | [引用和指针](01_reference.ipynb) | 引用的声明与初始化、引用和指针的区别、不可重新绑定等基本规则。 |
-| 2 | [函数参数与引用传递](02_function_parameter.ipynb) | 值传递、引用传递的行为差异，以及函数参数为什么常使用引用。 |
-| 3 | [常量](03_const.ipynb) | `const` 对象、`const T&`、常量与指针的组合，以及只读 API 的表达方式。 |
-| 4 | [引用与生命周期](04_reference_lifetime.ipynb) | 引用有效期、悬空引用风险，以及按值、可变引用和常量引用的参数选择。 |
+| 1 | [引用和指针](notebooks/01_reference.ipynb) | 引用的声明与初始化、引用和指针的区别、不可重新绑定等基本规则。 |
+| 2 | [函数参数与引用传递](notebooks/02_function_parameter.ipynb) | 值传递、引用传递的行为差异，以及函数参数为什么常使用引用。 |
+| 3 | [常量](notebooks/03_const.ipynb) | `const` 对象、`const T&`、常量与指针的组合，以及只读 API 的表达方式。 |
+| 4 | [引用与生命周期](notebooks/04_reference_lifetime.ipynb) | 引用有效期、悬空引用风险，以及按值、可变引用和常量引用的参数选择。 |
 
 ## 学习顺序
 

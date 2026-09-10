@@ -10,14 +10,14 @@
 
 | 顺序 | 实验 | 核心问题 |
 | --- | --- | --- |
-| 1 | [`std::string`](01_string.ipynb) | 字符所有权、容量、重分配和 C 字符串边界 |
-| 2 | [`std::string_view`](02_string_view.ipynb) | 零拷贝借用、切片、NUL 与悬空 view |
-| 3 | [`std::vector`](03_vector.ipynb) | 动态连续存储、iterator 失效和 pointer + length |
-| 4 | [`std::array`](04_array.ipynb) | 编译期固定长度、值语义和固定协议字段 |
-| 5 | [`std::span`](05_span.ipynb) | 通用连续借用、extent、子视图和跨边界生命周期 |
-| 6 | [`std::optional`](06_optional.ipynb) | 显式缺失、contained value 生命周期和 C 状态码 |
-| 7 | [`std::variant`](07_variant.ipynb) | 封闭状态、visitor、alternative 生命周期和 tagged ABI |
-| 8 | [SDK 风格 API](08_sdk_style_api.ipynb) | 组合 ownership contract，并翻译为稳定 C ABI |
+| 1 | [`std::string`](notebooks/01_string.ipynb) | 字符所有权、容量、重分配和 C 字符串边界 |
+| 2 | [`std::string_view`](notebooks/02_string_view.ipynb) | 零拷贝借用、切片、NUL 与悬空 view |
+| 3 | [`std::vector`](notebooks/03_vector.ipynb) | 动态连续存储、iterator 失效和 pointer + length |
+| 4 | [`std::array`](notebooks/04_array.ipynb) | 编译期固定长度、值语义和固定协议字段 |
+| 5 | [`std::span`](notebooks/05_span.ipynb) | 通用连续借用、extent、子视图和跨边界生命周期 |
+| 6 | [`std::optional`](notebooks/06_optional.ipynb) | 显式缺失、contained value 生命周期和 C 状态码 |
+| 7 | [`std::variant`](notebooks/07_variant.ipynb) | 封闭状态、visitor、alternative 生命周期和 tagged ABI |
+| 8 | [SDK 风格 API](notebooks/08_sdk_style_api.ipynb) | 组合 ownership contract，并翻译为稳定 C ABI |
 
 ## 学习主线
 

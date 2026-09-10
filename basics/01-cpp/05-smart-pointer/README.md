@@ -8,15 +8,15 @@
 
 | 实验 | 主题 | 核心问题 |
 | --- | --- | --- |
-| [01](./01_raw_pointer_problem.ipynb) | Raw pointer | 提前返回为什么造成泄漏？ |
-| [02](./02_unique_ptr.ipynb) | `unique_ptr` | 唯一 owner 如何自动清理？ |
-| [03](./03_unique_ownership_transfer.ipynb) | Ownership transfer | 为什么不能复制但可以移动？ |
-| [04](./04_custom_deleter.ipynb) | Custom deleter | 如何用 RAII 管理 `FILE*`？ |
-| [05](./05_shared_ptr.ipynb) | `shared_ptr` | 多个 owner 如何共同延长生命周期？ |
-| [06](./06_weak_ptr.ipynb) | `weak_ptr` | 如何安全观察但不保活对象？ |
-| [07](./07_cyclic_reference.ipynb) | Cyclic reference | strong cycle 和 callback self-cycle 为什么泄漏？ |
-| [08](./08_owner_borrower.ipynb) | Owner / borrower | 为什么普通业务 API 应接收对象借用？ |
-| [09](./09_sdk_style.ipynb) | SDK ownership | 如何选择成员类型并设计 C ABI handle？ |
+| [01](notebooks/01_raw_pointer_problem.ipynb) | Raw pointer | 提前返回为什么造成泄漏？ |
+| [02](notebooks/02_unique_ptr.ipynb) | `unique_ptr` | 唯一 owner 如何自动清理？ |
+| [03](notebooks/03_unique_ownership_transfer.ipynb) | Ownership transfer | 为什么不能复制但可以移动？ |
+| [04](notebooks/04_custom_deleter.ipynb) | Custom deleter | 如何用 RAII 管理 `FILE*`？ |
+| [05](notebooks/05_shared_ptr.ipynb) | `shared_ptr` | 多个 owner 如何共同延长生命周期？ |
+| [06](notebooks/06_weak_ptr.ipynb) | `weak_ptr` | 如何安全观察但不保活对象？ |
+| [07](notebooks/07_cyclic_reference.ipynb) | Cyclic reference | strong cycle 和 callback self-cycle 为什么泄漏？ |
+| [08](notebooks/08_owner_borrower.ipynb) | Owner / borrower | 为什么普通业务 API 应接收对象借用？ |
+| [09](notebooks/09_sdk_style.ipynb) | SDK ownership | 如何选择成员类型并设计 C ABI handle？ |
 
 ## 运行与诊断
 

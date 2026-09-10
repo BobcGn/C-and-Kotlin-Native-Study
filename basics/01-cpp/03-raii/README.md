@@ -8,12 +8,12 @@ RAII（Resource Acquisition Is Initialization）不只适用于内存，也适�
 
 | 顺序 | 实验 | 大致内容 |
 | --- | --- | --- |
-| 1 | [手动管理资源](01_manual-resource.ipynb) | 直接获取和释放资源，观察正常路径、提前返回和遗漏清理时的重复代码与泄漏风险。 |
-| 2 | [使用 RAII 管理文件](02_file_raii.ipynb) | 把文件句柄绑定到对象，在构造函数中获取资源、析构函数中释放资源，建立 RAII 的基本模型。 |
-| 3 | [作用域与资源生命周期](03_scope_lifetime.ipynb) | 观察嵌套作用域、多个局部对象和逆序析构，理解对象生命周期如何决定资源释放时机。 |
-| 4 | [提前返回与自动清理](04_early_return.ipynb) | 对比手动清理与 RAII 在多个返回分支中的表现，理解单一释放路径带来的可靠性。 |
-| 5 | [异常安全](05_exception_safety.ipynb) | 观察跨调用栈的异常传播、部分构造失败和成员清理，理解异常安全保证及 C ABI 边界。 |
-| 6 | [封装完整的 `File` 类](06_file_class.ipynb) | 综合唯一所有权、类不变量、确定性析构、错误报告和 C handle 借用，形成可复用的文件资源类型。 |
+| 1 | [手动管理资源](notebooks/01_manual-resource.ipynb) | 直接获取和释放资源，观察正常路径、提前返回和遗漏清理时的重复代码与泄漏风险。 |
+| 2 | [使用 RAII 管理文件](notebooks/02_file_raii.ipynb) | 把文件句柄绑定到对象，在构造函数中获取资源、析构函数中释放资源，建立 RAII 的基本模型。 |
+| 3 | [作用域与资源生命周期](notebooks/03_scope_lifetime.ipynb) | 观察嵌套作用域、多个局部对象和逆序析构，理解对象生命周期如何决定资源释放时机。 |
+| 4 | [提前返回与自动清理](notebooks/04_early_return.ipynb) | 对比手动清理与 RAII 在多个返回分支中的表现，理解单一释放路径带来的可靠性。 |
+| 5 | [异常安全](notebooks/05_exception_safety.ipynb) | 观察跨调用栈的异常传播、部分构造失败和成员清理，理解异常安全保证及 C ABI 边界。 |
+| 6 | [封装完整的 `File` 类](notebooks/06_file_class.ipynb) | 综合唯一所有权、类不变量、确定性析构、错误报告和 C handle 借用，形成可复用的文件资源类型。 |
 
 实验 6 的公开接口位于 [`include/file.hpp`](include/file.hpp)，成员函数实现和使用代码保留在 Notebook 中，便于交互执行。
 

@@ -4,13 +4,13 @@
 
 本仓库用于循序学习 C/C++、Native SDK、Kotlin/Native 与 KMP，重点是通过可运行实验理解 ownership、lifetime、ABI 和 FFI，而不是堆叠孤立语法示例。
 
-- `basics/`：按阶段递进的基础实验；目录和文件使用两位编号，如 `04-stl/02_string_view.ipynb`。
+- `basics/`：按阶段递进的基础实验；Notebook 统一放在主题的 `notebooks/` 中，如 `04-stl/notebooks/02_string_view.ipynb`。
 - `labs/`：验证一个具体问题的最小实验。
 - `projects/`：整合 C++ Core、C ABI、cinterop/JNI 和 Kotlin API 的完整项目。
 - `docs/plan/`：阶段任务与 Definition of Done；`notes/` 和 `upstream-notes/` 保存提炼后的结论。
 - `upstream/`：本地第三方源码，不得提交。
 
-新增或重命名阶段、主题目录时，同步更新该目录的 `README.md`、根 `README.md` 和对应计划。
+主题目录按需使用 `notebooks/`、`include/`（部分实验沿用 `includes/`）、`src/` 与 `outputs/` 分离交互实验、接口、实现和运行产物。新增或重命名阶段、主题目录时，同步更新该目录的 `README.md`、根 `README.md` 和对应计划。
 
 ## 实验 Notebook 规范
 
