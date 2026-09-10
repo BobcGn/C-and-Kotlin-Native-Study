@@ -25,6 +25,7 @@
 
 ## Week 3：移动、并发与工具链
 
+- [x] 区分 lvalue、prvalue、xvalue，并理解 `std::move` 产生 xvalue
 - [ ] 观察 copy/move constructor 和 move assignment
 - [ ] 实现 rule of zero / rule of five 对照实验
 - [ ] 使用 `thread`、`mutex`、`atomic`

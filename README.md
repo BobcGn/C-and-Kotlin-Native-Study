@@ -2,7 +2,7 @@
 
 一个可复现、持续演进的 Kotlin/Native 与 Native SDK 工程学习仓库。学习主线从现代 C++ 出发，经过 C ABI、FFI 和 Kotlin/Native，最终落到 Kotlin Multiplatform SDK、生产工程与上游开源贡献。
 
-> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII、STL ownership/API contract，以及第五部分智能指针实验已经完成；移动语义、并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
+> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII、STL ownership/API contract，以及第五部分智能指针实验已经完成；第六部分移动语义正在进行，并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
 
 ## 学习主线
 
@@ -58,7 +58,7 @@ jupyter lab
 
 ### 3. 运行已有 C++ 实验
 
-当前 C++ 实验使用 C++23 Notebook。每个实验从一个可观察问题出发，通过代码输出、断言和失败案例解释 ownership、lifetime 以及 ABI 边界。主题目录的 `README.md` 记录实验顺序与验收要求；公开接口示例放在相邻 `include/` 中。
+当前 C++ 实验使用 C++23 Notebook。每个实验从一个可观察问题出发，通过代码输出、断言和失败案例解释 ownership、lifetime 以及 ABI 边界。主题目录的 `README.md` 记录实验顺序与验收要求；Notebook 统一放在 `notebooks/`，可复用接口和实现按需放在相邻的 `include/`（或既有 `includes/`）与 `src/` 中。
 
 ### 4. 推荐学习顺序
 
@@ -67,8 +67,8 @@ jupyter lab
 3. 依次运行 `03-raii`，从手动清理推进到可复用资源 owner。
 4. 依次运行 [`04-stl`](basics/01-cpp/04-stl/README.md)，完成类型语义与 C ABI 翻译验收。
 5. 依次运行 [`05-smart-pointer`](basics/01-cpp/05-smart-pointer/README.md)，完成 ownership graph、Sanitizer 与 SDK handle 验收。
-6. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 继续补齐移动语义、并发和工具链。
-7. 通过阶段计划中的验收条件后，再进入下一阶段。
+6. 进入 [`06-move-semantics`](basics/01-cpp/06-move-semantics/README.md)，从 value category 理解移动语义的表达式基础。
+7. 按 [`docs/plan/01-modern-cpp.md`](docs/plan/01-modern-cpp.md) 继续补齐并发和工具链，通过验收条件后再进入下一阶段。
 
 ## 当前目录结构
 
@@ -96,7 +96,7 @@ KotlinNativeStudy/
 │   │   ├── 03-raii/                  # 文件资源、作用域、提前返回、异常安全
 │   │   ├── 04-stl/                   # 容器、视图、结果状态与 SDK API contract
 │   │   ├── 05-smart-pointer/         # 唯一/共享所有权、weak observer 与 SDK handle
-│   │   ├── 06-move-semantics/        # 预留：移动语义
+│   │   ├── 06-move-semantics/        # value category、右值引用与 copy/move 实验
 │   │   └── 07-threading/             # 预留：并发与内存模型
 │   ├── 02-libraries/                 # 预留：静态库、动态库、符号、C ABI
 │   ├── 03-kotlin_native/             # 预留：cinterop 基础实验
@@ -110,6 +110,8 @@ KotlinNativeStudy/
 ```
 
 目录约定：`basics/` 用于循序练习，`labs/` 用于验证单个问题，`projects/` 用于整合完整 SDK；克隆的第三方源码放进 `upstream/`，研究结论则写入可提交的 `upstream-notes/`。
+
+C++ 主题目录内部统一将交互实验放入 `notebooks/`；独立源码、头文件与运行产物分别放入 `src/`、`include/`（或主题现有的 `includes/`）和 `outputs/`。README 保持在主题根目录，作为实验入口。
 
 需要拉取的第三方源码、版本和命令统一记录在 [`docs/upstream.md`](docs/upstream.md)，不会直接收录进本仓库。
 
