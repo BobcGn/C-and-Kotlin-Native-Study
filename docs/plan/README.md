@@ -1,6 +1,17 @@
 # 学习计划总览
 
-本目录把项目总目标拆成七个可交付阶段。各阶段按依赖顺序推进；生产工程从 Phase 2 开始持续补强，不必等到最后才进行。
+七个 Phase 表达 Native / ABI dependency roadmap。Cross-cutting Track 可以跨 Phase 推进；Production 从 Phase 2 开始持续补强，不必等到最后才进行。
+
+## Cross-cutting Learning Tracks
+
+**Phase** 表示既有 Native 学习依赖路线；**Track** 表示可以跨 Phase 推进的实际研究路径。Track 不会新增或替代 Phase。
+
+- **Shared Fundamentals**：C/C++、Compiler、Build、Debugging、Runtime、OS / Architecture，为各实践路径提供共用概念和诊断能力。
+- **Native / ABI Track**：Phase 1–4 是主要承载，从现代 C++、Native Library 与 C ABI 到 Kotlin/Native、KMP；Phase 5–7 提供生产和上游延伸。
+- **Kotlin/JS / MiniApp Track**：近期实践路径，观察 Kotlin Source 经 Gradle、Kotlin Compiler、Kotlin/JS、Generated JS、Link / Bundle、MiniApp Artifact 到 WeChat Runtime 的变化。当前问题与瓶颈尚未验证；见 [`Kotlin/JS → MiniApp Track`](../tracks/kotlin-js-miniapp.md)。
+- **Production / Evidence Track**：跨路径推进 Testing、Benchmark、Compatibility、Release，并以可复现实验和运行证据支持结论。
+
+这些 Track 共享基础，但不要求串行完成，也不代表同等成熟度。先从真实问题和已有证据选择下一步。
 
 | 阶段 | 建议周期 | 状态 | 退出条件 |
 | --- | --- | --- | --- |
@@ -21,4 +32,3 @@
 5. 目录、依赖或运行方法变化时，同步更新根目录 README。
 
 建议每周投入 8–10 小时：4 小时主线编码、2 小时系统知识、2 小时源码阅读、1 小时调试/性能工具、1 小时整理笔记。
-

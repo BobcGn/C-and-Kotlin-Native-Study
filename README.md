@@ -1,10 +1,14 @@
 # KotlinNativeStudy
 
-一个可复现、持续演进的 Kotlin/Native 与 Native SDK 工程学习仓库。学习主线从现代 C++ 出发，经过 C ABI、FFI 和 Kotlin/Native，最终落到 Kotlin Multiplatform SDK、生产工程与上游开源贡献。
+一个围绕 **Runtime / Cross-platform / SDK Infrastructure** 的可复现学习仓库，研究一份能力如何跨越不同 Runtime 与 Platform 复用。
 
-> 当前进度：Phase 1（现代 C/C++）。引用与生命周期、类与对象、RAII、STL ownership/API contract，以及第五部分智能指针实验已经完成；第六部分移动语义正在进行，并发和工具链仍是后续工作，详细任务见 [`docs/plan`](docs/plan/README.md)。
+当前保留两条成熟度不同的实践路径：**Native / ABI Track**（C++、C ABI、Kotlin/Native 与 KMP）已有较完整的长期学习路线；**Kotlin/JS / MiniApp Track** 是当前三个月最高优先级的研究路径。KJS 路径可跨 Phase 推进，不需要等待 Phase 1–4 完成；当前 KJS bottleneck 仍为 **UNVERIFIED**。
+
+> 当前进度：Phase 1（现代 C/C++）进行中，Move Semantics 正在学习。近期重点是 Compiler、Build System、Debugging / Runtime Evidence 与 Kotlin/JS / MiniApp。近期重点与继续推进 Phase 1 并不冲突；阶段与跨阶段 Track 的关系见 [`docs/plan`](docs/plan/README.md)。
 
 ## 学习主线
+
+长期 Native SDK 路线仍然有效：
 
 ```text
 Modern C/C++ → Native Library → Stable C ABI → Kotlin/Native cinterop

@@ -39,3 +39,13 @@
 - 能解释资源创建、转移和销毁，以及悬空引用、泄漏、double free 和 data race。
 - CMake 项目具有测试目标和 Sanitizer 构建选项。
 - 形成 RAII、ownership 和 concurrency 总结。
+
+## Current Priority / Scheduling Note
+
+Phase 1 的 checklist 保持完整；近期 Kotlin/JS 目标不会删除或改写这些任务。
+
+- **Move Semantics** 正在进行，完成 copy/move 行为的最小学习闭环。
+- **CMake / Ninja** 保留为 Build / Native Track 内容，但不是开始 Kotlin/JS Track 的前置条件。
+- **Concurrency / TSan** 延后到出现真实并发或 Native Runtime 问题时再优先处理。
+- **LLDB / ASan / UBSan** 是 Native Debug 能力，随相关原生实验引入；不作为进入 Kotlin/JS Track 的门槛。
+- Phase 1 完成与否 **不阻止开始 Kotlin/JS Track**。Phase checklist 记录主题任务状态；Track 按其自身问题和证据推进。

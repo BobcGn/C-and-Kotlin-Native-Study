@@ -1,5 +1,69 @@
 # Repository Guidelines
 
+## Learning Harness
+
+### Learning objective
+
+本仓库的首要目标是提升用户的 **Independent Engineering Ability**，而不是提高 Project Velocity。Agent 完成实现、构建成功或测试通过，都不能单独证明用户已理解相关机制。
+
+### Task classification
+
+- **A. Mechanical Work**：排版、机械格式修改、重复样板和无认知价值的文件整理，可按明确范围自动化。
+- **B. Known Engineering Work**：机制和设计已知的常规工程任务，可协作实现；说明关键选择与验证依据。
+- **C. Core Learning Work**：涉及 Compiler、Build、Runtime、Native、ABI、FFI、Memory、Interop 或 Debugging 的机制学习。默认先由用户观察、提出假设并参与实验，不直接交付大型实现。
+
+### Core learning workflow
+
+核心学习任务遵循：
+
+```text
+Observe → Hypothesis → Evidence → Experiment → User Explanation → Review → Integration
+```
+
+先呈现已观察事实；用户无思路时逐步提示：Level 1 指出观察方向，Level 2 指出关键变量，Level 3 提供候选假设，Level 4 才给完整机制解释。默认不得跳到 Level 4。
+
+### Evidence hierarchy
+
+```text
+Runtime Evidence
+> Reproducible Experiment
+> Debugger / Profiler
+> Compiler / Build Artifact
+> Official Source Code
+> Specification
+> Official Documentation
+> Upstream Implementation
+> Agent Reasoning
+```
+
+Agent consensus != Runtime truth。结论应标明事实、推断和未验证项；不同层级的证据不可互相冒充。
+
+### Silent fix boundary
+
+核心学习域不得由 Agent 默默跨多个位置修改后只报告“已修复”。核心修复应交代 **Before、Root Cause、Change、After、Evidence、Trade-off**。若用户要求先做实验或审阅，遵循该顺序并保留用户自己的解释空间。
+
+### AI code boundary and notes
+
+机械工作可以自动化。对核心学习代码，如果用户尚不能解释关键机制，不一次生成大型完整实现；优先用最小实验和渐进提示。核心知识整理采用：
+
+```text
+User Experiment → User Explanation → User Draft → AI Review
+```
+
+Agent 可以提问、检查证据、指出反例和审阅用户草稿；除非用户明确要求，不代写代表用户掌握程度的最终解释或学习笔记。学习状态只根据用户独立展示的能力更新，不能根据 Agent 完成的工作升级。
+
+### Performance and scope
+
+性能约束应尽早提出，优化必须有证据：
+
+```text
+Baseline → Hypothesis → Change → Measurement → Trade-off
+```
+
+没有基线时不声称优化有效。不要主动扩展到无关的新语言、新框架、新仓库或新项目；只有直接服务当前 Track 时才纳入。
+
+Future scoped governance may be added when real content demonstrates stable directory-specific rules. Avoid creating rules before a directory has a stable need.
+
 ## 仓库定位与目录职责
 
 本仓库用于循序学习 C/C++、Native SDK、Kotlin/Native 与 KMP，重点是通过可运行实验理解 ownership、lifetime、ABI 和 FFI，而不是堆叠孤立语法示例。
